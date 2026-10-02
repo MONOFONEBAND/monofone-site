@@ -1,36 +1,854 @@
+```html
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <meta name="description" content="MONOFONE — Muita música, vídeos, agenda e novidades.">
-<title>MONOFONE — Rock da Mantiqueira</title><link rel="stylesheet" href="style.css">
+
+<title>MONOFONE — Rock da Mantiqueira</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* ================================
+   GALERIA DE FOTOGRAFIAS
+   ================================ */
+
+.gallery-section {
+  overflow: hidden;
+}
+
+.gallery {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 55px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery-frame {
+  width: min(820px, 82vw);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #111;
+}
+
+.gallery-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity .45s ease,
+    transform .7s ease;
+}
+
+.gallery-frame img.fade {
+  opacity: 0;
+  transform: scale(1.015);
+}
+
+.gallery-arrow {
+  width: 46px;
+  height: 46px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all .25s ease;
+}
+
+.gallery-arrow:hover {
+  background: #111;
+  color: #fff;
+}
+
+.gallery-bottom {
+  max-width: 820px;
+  margin: 25px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.gallery-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.gallery-dot {
+  width: 7px;
+  height: 7px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #999;
+
+  padding: 0;
+  cursor: pointer;
+
+  opacity: .45;
+
+  transition: all .25s ease;
+}
+
+.gallery-dot.active {
+  opacity: 1;
+  transform: scale(1.35);
+}
+
+.gallery-instagram {
+  font-size: 11px;
+  letter-spacing: .12em;
+
+  text-decoration: none;
+
+  color: inherit;
+
+  transition: opacity .25s ease;
+}
+
+.gallery-instagram:hover {
+  opacity: .55;
+}
+
+
+/* ================================
+   CELULAR
+   ================================ */
+
+@media (max-width:700px) {
+
+  .gallery {
+    gap: 8px;
+  }
+
+  .gallery-frame {
+    width: calc(100vw - 95px);
+    aspect-ratio: 4 / 5;
+  }
+
+  .gallery-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .gallery-bottom {
+    padding: 0 20px;
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+</style>
+
 </head>
+
+
 <body>
-<header class="header"><a class="mini-logo" href="#inicio">MONOFONE</a><button class="menu">☰</button>
-<nav><a href="#musica">Música</a><a href="#banda">A banda</a><a href="#agenda">Agenda</a><a href="#contato">Contato</a></nav></header>
+
+
+<!-- ================================
+     CABEÇALHO
+     ================================ -->
+
+<header class="header">
+
+<a class="mini-logo" href="#inicio">
+MONOFONE
+</a>
+
+<button class="menu">
+☰
+</button>
+
+<nav>
+
+<a href="#musica">Música</a>
+
+<a href="#banda">A banda</a>
+
+<a href="#agenda">Agenda</a>
+
+<a href="#fotografias">Fotos</a>
+
+<a href="#contato">Contato</a>
+
+</nav>
+
+</header>
+
+
+
 <main>
-<section id="inicio" class="hero"><img class="hero-photo" src="assets/monofone-hero.jpg" alt="MONOFONE em estúdio"><div class="shade"></div>
-<div class="hero-content"><p class="kicker">JOANÓPOLIS • SERRA DA MANTIQUEIRA • BRASIL</p><div class="logo-box"><img src="assets/monofone-logo.png" alt="MONOFONE" class="hero-logo"></div>
-<p class="hero-copy">Rock para todos!</p>
-<div class="actions"><a class="btn light" href="#musica">Ouça agora</a><a class="btn" href="#banda">Conheça a banda</a></div></div><span class="scroll">SCROLL ↓</span></section>
 
-<section id="musica" class="section"><div class="heading"><p class="kicker">01 / MÚSICA</p><h2>Entre silêncios.</h2><p>Uma capa provisória para dar forma ao espaço que receberá os lançamentos oficiais.</p></div>
-<div class="release"><div><img class="cover" src="assets/capa-provisoria.jpg" alt="Capa provisória Entre Silêncios"></div>
-<div class="release-info"><p class="small">EP • VOL. 1</p><h3>ENTRE SILÊNCIOS</h3><p>Material conceitual provisório. Aqui entrarão a capa oficial, a descrição do lançamento e os links para as plataformas digitais.</p>
-<div class="platforms"><a href="#">Spotify ↗</a><a href="#">YouTube ↗</a><a href="#">Deezer ↗</a></div></div></div></section>
 
-<section id="banda" class="section dark"><div class="heading"><p class="kicker">02 / A BANDA</p><h2>Som, ideia e presença.</h2></div>
-<div class="about"><div class="number">02</div><div class="about-copy"><p class="lead">A MONOFONE transforma observações do cotidiano em Rock and roll.</p>
-<p>Em meio uma série de fatores que envolvem o Ser humano e suas ações, a banda encontrou uma linguagem própria, transmitido através de um universo que mantém em uma comunicação contemporânea, direta e limpa,  muito marcante dentro de  suas canções. Formado por quatro amigos (Dario Oliveira, Gilmar Andrade, Gabriel Paixão "Madói" e Rafael Salles) a banda traz em seu rock uma mistura potente de atitude e sentimento.</p>
-<p>Este site será nosso ponto de encontro para falarmos de música, vídeos, fotos, agenda e novidades.</p></div></div></section>
+<!-- ================================
+     INÍCIO
+     ================================ -->
 
-<section class="photo-break"><img src="assets/monofone-hero.jpg" alt="MONOFONE no estúdio"><span>MONOFONE / ESTÚDIO</span></section>
+<section id="inicio" class="hero">
 
-<section id="agenda" class="section"><div class="heading"><p class="kicker">03 / AO VIVO</p><h2>Agenda.</h2></div>
-<div class="agenda"><small>PRÓXIMO SHOW</small><strong>A confirmar</strong><p>Quando a agenda oficial estiver definida, as datas aparecerão aqui.</p></div></section>
+<img
+class="hero-photo"
+src="assets/monofone-hero.jpg"
+alt="MONOFONE em estúdio"
+>
 
-<section id="contato" class="section dark"><div class="heading"><p class="kicker">04 / CONTATO</p><h2>Vamos conversar.</h2></div>
-<div class="contact"><div><p class="lead">Shows, imprensa, parcerias e projetos.</p><p>Siga a MONOFONE nos canais oficiais.</p></div>
-<div class="links"><a href="#">Instagram <i>↗</i></a><a href="#">YouTube <i>↗</i></a><a href="#">Spotify <i>↗</i></a><a href="mailto:contato@monofone.com.br">E-mail <i>↗</i></a></div></div></section>
-</main><footer><span>MONOFONE</span><span>Todos os direitos reservados © 2026</span></footer><script src="script.js"></script>
-</body></html>
+<div class="shade"></div>
+
+
+<div class="hero-content">
+
+<p class="kicker">
+JOANÓPOLIS • SERRA DA MANTIQUEIRA • BRASIL
+</p>
+
+
+<div class="logo-box">
+
+<img
+src="assets/monofone-logo.png"
+alt="MONOFONE"
+class="hero-logo"
+>
+
+</div>
+
+
+<p class="hero-copy">
+Rock para todos!
+</p>
+
+
+<div class="actions">
+
+<a
+class="btn light"
+href="#musica"
+>
+Ouça agora
+</a>
+
+
+<a
+class="btn"
+href="#banda"
+>
+Conheça a banda
+</a>
+
+</div>
+
+</div>
+
+
+<span class="scroll">
+SCROLL ↓
+</span>
+
+</section>
+
+
+
+<!-- ================================
+     MÚSICA
+     ================================ -->
+
+<section id="musica" class="section">
+
+<div class="heading">
+
+<p class="kicker">
+01 / MÚSICA
+</p>
+
+<h2>
+Entre silêncios.
+</h2>
+
+<p>
+Uma capa provisória para dar forma ao espaço que receberá os lançamentos oficiais.
+</p>
+
+</div>
+
+
+<div class="release">
+
+<div>
+
+<img
+class="cover"
+src="assets/capa-provisoria.jpg"
+alt="Capa provisória Entre Silêncios"
+>
+
+</div>
+
+
+<div class="release-info">
+
+<p class="small">
+EP • VOL. 1
+</p>
+
+<h3>
+ENTRE SILÊNCIOS
+</h3>
+
+<p>
+Material conceitual provisório. Aqui entrarão a capa oficial, a descrição do lançamento e os links para as plataformas digitais.
+</p>
+
+
+<div class="platforms">
+
+<a href="#">
+Spotify ↗
+</a>
+
+<a href="#">
+YouTube ↗
+</a>
+
+<a href="#">
+Deezer ↗
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     A BANDA
+     ================================ -->
+
+<section id="banda" class="section dark">
+
+<div class="heading">
+
+<p class="kicker">
+02 / A BANDA
+</p>
+
+<h2>
+Som, ideia e presença.
+</h2>
+
+</div>
+
+
+<div class="about">
+
+<div class="number">
+02
+</div>
+
+
+<div class="about-copy">
+
+<p class="lead">
+A MONOFONE transforma observações do cotidiano em Rock and roll.
+</p>
+
+
+<p>
+Em meio uma série de fatores que envolvem o Ser humano e suas ações, a banda encontrou uma linguagem própria, transmitido através de um universo que mantém em uma comunicação contemporânea, direta e limpa, muito marcante dentro de suas canções. Formado por quatro amigos (Dario Oliveira, Gilmar Andrade, Gabriel Paixão "Madói" e Rafael Salles) a banda traz em seu rock uma mistura potente de atitude e sentimento.
+</p>
+
+
+<p>
+Este site será nosso ponto de encontro para falarmos de música, vídeos, fotos, agenda e novidades.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     FOTO DE DESTAQUE
+     ================================ -->
+
+<section class="photo-break">
+
+<img
+src="assets/monofone-hero.jpg"
+alt="MONOFONE no estúdio"
+>
+
+<span>
+MONOFONE / ESTÚDIO
+</span>
+
+</section>
+
+
+
+<!-- ================================
+     AGENDA
+     ================================ -->
+
+<section id="agenda" class="section">
+
+<div class="heading">
+
+<p class="kicker">
+03 / AO VIVO
+</p>
+
+<h2>
+Agenda.
+</h2>
+
+</div>
+
+
+<div class="agenda">
+
+<small>
+PRÓXIMO SHOW
+</small>
+
+<strong>
+A confirmar
+</strong>
+
+<p>
+Quando a agenda oficial estiver definida, as datas aparecerão aqui.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     GALERIA
+     ================================ -->
+
+<section
+id="fotografias"
+class="section gallery-section"
+>
+
+
+<div class="heading">
+
+<p class="kicker">
+04 / FOTOGRAFIAS
+</p>
+
+<h2>
+Momentos da MONOFONE.
+</h2>
+
+<p>
+Registros de ensaios, shows, estúdio e momentos da banda.
+</p>
+
+</div>
+
+
+
+<div class="gallery">
+
+
+<button
+class="gallery-arrow gallery-prev"
+aria-label="Foto anterior"
+>
+←
+</button>
+
+
+
+<div class="gallery-frame">
+
+<img
+id="gallery-image"
+src="assets/galeria/galeria-01.jpg"
+alt="MONOFONE — fotografia"
+>
+
+</div>
+
+
+
+<button
+class="gallery-arrow gallery-next"
+aria-label="Próxima foto"
+>
+→
+</button>
+
+
+</div>
+
+
+
+<div class="gallery-bottom">
+
+
+<div
+class="gallery-dots"
+id="gallery-dots"
+>
+</div>
+
+
+
+<a
+class="gallery-instagram"
+href="https://www.instagram.com/monofone.oficial/"
+target="_blank"
+rel="noopener noreferrer"
+>
+VER TODAS NO INSTAGRAM ↗
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     CONTATO
+     ================================ -->
+
+<section
+id="contato"
+class="section dark"
+>
+
+
+<div class="heading">
+
+<p class="kicker">
+05 / CONTATO
+</p>
+
+<h2>
+Vamos conversar.
+</h2>
+
+</div>
+
+
+
+<div class="contact">
+
+
+<div>
+
+<p class="lead">
+Shows, imprensa, parcerias e projetos.
+</p>
+
+<p>
+Siga a MONOFONE nos canais oficiais.
+</p>
+
+</div>
+
+
+
+<div class="links">
+
+
+<a
+href="https://www.instagram.com/monofone.oficial/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Instagram <i>↗</i>
+</a>
+
+
+<a href="#">
+YouTube <i>↗</i>
+</a>
+
+
+<a href="#">
+Spotify <i>↗</i>
+</a>
+
+
+<a href="mailto:contato@monofone.com.br">
+E-mail <i>↗</i>
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ================================
+     RODAPÉ
+     ================================ -->
+
+<footer>
+
+<span>
+MONOFONE
+</span>
+
+<span>
+Todos os direitos reservados © 2026
+</span>
+
+</footer>
+
+
+
+<!-- ================================
+     GALERIA — JAVASCRIPT
+     ================================ -->
+
+<script>
+
+const galleryImages = [
+
+"assets/galeria/galeria-01.jpg",
+
+"assets/galeria/galeria-02.jpg",
+
+"assets/galeria/galeria-03.jpg",
+
+"assets/galeria/galeria-04.jpg",
+
+"assets/galeria/galeria-05.jpg",
+
+"assets/galeria/galeria-06.jpg",
+
+"assets/galeria/galeria-07.jpg",
+
+"assets/galeria/galeria-08.jpg"
+
+];
+
+
+const galleryImage =
+document.getElementById("gallery-image");
+
+const galleryDots =
+document.getElementById("gallery-dots");
+
+const galleryPrev =
+document.querySelector(".gallery-prev");
+
+const galleryNext =
+document.querySelector(".gallery-next");
+
+
+let galleryIndex = 0;
+
+let galleryTimer;
+
+
+
+/* CRIA OS PONTOS */
+
+galleryImages.forEach((image, index) => {
+
+const dot =
+document.createElement("button");
+
+dot.className = "gallery-dot";
+
+dot.setAttribute(
+"aria-label",
+`Ir para fotografia ${index + 1}`
+);
+
+
+dot.addEventListener("click", () => {
+
+showGalleryImage(index);
+
+restartGallery();
+
+});
+
+
+galleryDots.appendChild(dot);
+
+});
+
+
+
+/* MOSTRA A FOTO */
+
+function showGalleryImage(index) {
+
+galleryIndex =
+(index + galleryImages.length)
+% galleryImages.length;
+
+
+galleryImage.classList.add("fade");
+
+
+setTimeout(() => {
+
+galleryImage.src =
+galleryImages[galleryIndex];
+
+
+galleryImage.onload = () => {
+
+galleryImage.classList.remove("fade");
+
+};
+
+
+document
+.querySelectorAll(".gallery-dot")
+.forEach((dot, i) => {
+
+dot.classList.toggle(
+"active",
+i === galleryIndex
+);
+
+});
+
+}, 220);
+
+}
+
+
+
+/* PRÓXIMA */
+
+function nextGalleryImage() {
+
+showGalleryImage(
+galleryIndex + 1
+);
+
+}
+
+
+
+/* ANTERIOR */
+
+function previousGalleryImage() {
+
+showGalleryImage(
+galleryIndex - 1
+);
+
+}
+
+
+
+/* INICIA AUTOMÁTICO */
+
+function startGallery() {
+
+galleryTimer =
+setInterval(
+nextGalleryImage,
+4000
+);
+
+}
+
+
+
+/* REINICIA CONTADOR */
+
+function restartGallery() {
+
+clearInterval(
+galleryTimer
+);
+
+startGallery();
+
+}
+
+
+
+/* SETAS */
+
+galleryNext.addEventListener(
+"click",
+() => {
+
+nextGalleryImage();
+
+restartGallery();
+
+});
+
+
+galleryPrev.addEventListener(
+"click",
+() => {
+
+previousGalleryImage();
+
+restartGallery();
+
+});
+
+
+
+/* INICIA GALERIA */
+
+showGalleryImage(0);
+
+startGallery();
+
+</script>
+
+
+</body>
+
+</html>
+```
